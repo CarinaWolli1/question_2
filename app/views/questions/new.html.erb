@@ -1,0 +1,21 @@
+<%= form_tag(questions_path, method: 'post') do %>
+  <%= label_tag :text %><br>
+  <%= text_field_tag :text %><br>
+
+  <%= label_tag :answer_true %><br>
+  <%= text_field_tag :answer_true %><br>
+
+  <%= label_tag :answer_b %><br>
+  <%= text_field_tag :answer_b %><br>
+
+  <%= label_tag :answer_c %><br>
+  <%= text_field_tag :answer_c %><br>
+
+  <%= label_tag :answer_d %><br>
+  <%= text_field_tag :answer_d %><br>
+
+  <%= label_tag :answer_e %><br>
+  <%= text_field_tag :answer_e %><br>
+
+  <%= submit_tag 'Submit' %>
+<% end %>
