@@ -1,8 +1,6 @@
+<% if user_signed_in? %>
 <html>
     <body>
-      <nav class="navbar navbar-dark bg-dark">
-          <%= link_to "Log out", new_student_path %>
-      </nav>
       <div class="center jumbotron">
 <li><%= link_to "CSV", results_path(format: "csv") %></li>
 <%= button_to 'Delete All Questions and Answers', delete_path, method: :get %>
@@ -58,3 +56,9 @@
 </div>
   </body>
 </html>
+<%else %>
+  <p>Only Admin has the rights for this page.</p>
+
+  <%= link_to "Login", new_user_session_path%>
+
+<% end %>

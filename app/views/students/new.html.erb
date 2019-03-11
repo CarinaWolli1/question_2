@@ -1,8 +1,5 @@
 <html>
   <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <%= link_to "Log in", new_question_path %>
-    </nav>
     <div class="center jumbotron">
       <h1>Communication Engineering</h1>
       <%= form_with scope: :student, url: students_path, local: true do |form| %>

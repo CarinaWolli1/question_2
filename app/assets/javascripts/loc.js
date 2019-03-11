@@ -1,5 +1,4 @@
-console.log("test");
-$("#test").hide;
+
 
 $( document ).on('turbolinks:load', function() {
 
