@@ -1,9 +1,18 @@
-<%= form_tag(student_answers_path, method: 'post') do %>
-  <% @questions.shuffle.each do |question| %>
-    <h3><%= question.text %></h3>
-    <% question.answers.shuffle.each do |answer| %>
-      <input type="radio" name="<%= question.id %>" value="<%= answer.id %>"> <%= answer.text %><br>
-    <% end %>
-  <% end %>
-  <%= submit_tag 'Submit' %>
-<% end %>
+<html>
+    <body>
+      <nav class="navbar navbar-dark bg-dark">
+          <%= link_to "Log in", new_question_path %>
+      </nav>
+    <div class="center jumbotron">
+      <%= form_tag(student_answers_path, method: 'post') do %>
+        <% @questions.shuffle.each do |question| %>
+          <h3><%= question.text %></h3>
+          <% question.answers.shuffle.each do |answer| %>
+            <input type="radio" name="<%= question.id %>" value="<%= answer.id %>" checked> <%= answer.text %><br>
+          <% end %>
+        <% end %>
+        <%= submit_tag 'Submit' %>
+      <% end %>
+    </div>
+  </body>
+</html>

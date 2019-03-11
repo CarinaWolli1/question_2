@@ -1,4 +1,13 @@
 class QuestionsController < ApplicationController
+  def delete
+  StudentAnswer.destroy_all
+  Answer.destroy_all
+  Question.destroy_all
+
+
+  redirect_to new_question_path
+  end
+
   def new
   end
 
@@ -26,5 +35,7 @@ class QuestionsController < ApplicationController
       text: params[:answer_e],
       is_true: false
     )
+
+    redirect_to new_question_path
   end
 end

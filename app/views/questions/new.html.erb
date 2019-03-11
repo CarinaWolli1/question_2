@@ -1,21 +1,60 @@
-<%= form_tag(questions_path, method: 'post') do %>
-  <%= label_tag :text %><br>
-  <%= text_field_tag :text %><br>
+<html>
+    <body>
+      <nav class="navbar navbar-dark bg-dark">
+          <%= link_to "Log out", new_student_path %>
+      </nav>
+      <div class="center jumbotron">
+<li><%= link_to "CSV", results_path(format: "csv") %></li>
+<%= button_to 'Delete All Questions and Answers', delete_path, method: :get %>
+        <div class="row">
+          <div class="column">
 
-  <%= label_tag :answer_true %><br>
-  <%= text_field_tag :answer_true %><br>
 
-  <%= label_tag :answer_b %><br>
-  <%= text_field_tag :answer_b %><br>
+    <%= form_tag(questions_path, method: 'post') do %>
+      <%= label_tag :text %><br>
+      <%= text_field_tag :text %><br>
 
-  <%= label_tag :answer_c %><br>
-  <%= text_field_tag :answer_c %><br>
+      <%= label_tag :answer_true %><br>
+      <%= text_field_tag :answer_true %><br>
 
-  <%= label_tag :answer_d %><br>
-  <%= text_field_tag :answer_d %><br>
+      <%= label_tag :answer_b %><br>
+      <%= text_field_tag :answer_b %><br>
 
-  <%= label_tag :answer_e %><br>
-  <%= text_field_tag :answer_e %><br>
+      <%= label_tag :answer_c %><br>
+      <%= text_field_tag :answer_c %><br>
 
-  <%= submit_tag 'Submit' %>
-<% end %>
+      <%= label_tag :answer_d %><br>
+      <%= text_field_tag :answer_d %><br>
+
+      <%= label_tag :answer_e %><br>
+      <%= text_field_tag :answer_e %><br>
+
+      <br><%= submit_tag 'Submit' %>
+    <% end %>
+    </div>
+
+    <div class="column">
+          <% Question.all.each do |question| %>
+              <div class="row">
+                <div>
+                  <%= question.text %>
+                </div>
+              </div>
+                <%=Answer.where(question_id: question.id).find_each do |answer|%>
+
+                  <ul>
+
+                    <li>
+                      <%= answer.text %>
+                    </li>
+
+                    </ul>
+
+            <% end %>
+          <% end %>
+      </div>
+
+    </div>
+</div>
+  </body>
+</html>
