@@ -2,12 +2,12 @@
 <html>
     <body>
       <div class="center jumbotron">
-<li><%= link_to "CSV", results_path(format: "csv") %></li>
-<%= button_to 'Delete All Questions and Answers', delete_path, method: :get %>
+
+
         <div class="row">
           <div class="column">
 
-
+<%= link_to "CSV", results_path(format: "csv") %>
     <%= form_tag(questions_path, method: 'post') do %>
       <%= label_tag :text %><br>
       <%= text_field_tag :text %><br>
@@ -32,7 +32,10 @@
     </div>
 
     <div class="column">
-          <% Question.all.each do |question| %>
+      <div class="row">
+        <%= button_to 'Delete All Questions and Answers', delete_path, method: :get %>
+      </div>
+        <% Question.all.each do |question| %>
               <div class="row">
                 <div>
                   <%= question.text %>
