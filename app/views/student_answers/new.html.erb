@@ -7,7 +7,7 @@
           <% question.answers.shuffle.each do |answer| %>
             <input type="radio" name="<%= question.id %>" value="<%= answer.id %>" checked> <%= answer.text %><br>
           <% end %>
-        <% end %>
+        <% end %><br>
         <%= submit_tag 'Submit' %>
       <% end %>
     </div>
