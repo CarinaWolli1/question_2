@@ -12,10 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20190311121254) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "adminpack"
+
   create_table "answers", force: :cascade do |t|
     t.string "text"
     t.boolean "is_true"
-    t.integer "question_id"
+    t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -36,7 +40,7 @@ ActiveRecord::Schema.define(version: 20190311121254) do
 
   create_table "student_answers", force: :cascade do |t|
     t.string "student_number"
-    t.integer "answer_id"
+    t.bigint "answer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["answer_id"], name: "index_student_answers_on_answer_id"
@@ -54,4 +58,6 @@ ActiveRecord::Schema.define(version: 20190311121254) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "student_answers", "answers"
 end
