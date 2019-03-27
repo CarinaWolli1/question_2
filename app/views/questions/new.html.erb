@@ -7,34 +7,35 @@
         <div class="row">
           <div class="column">
 
-<%= link_to "CSV", results_path(format: "csv") %>
+
     <%= form_tag(questions_path, method: 'post') do %>
-      <%= label_tag :text %><br>
+      <%= label_tag 'Question' %><br>
       <%= text_field_tag :text %><br>
 
-      <%= label_tag :answer_true %><br>
+      <%= label_tag 'true answer' %><br>
       <%= text_field_tag :answer_true %><br>
 
-      <%= label_tag :answer_b %><br>
+      <%= label_tag 'false answer' %><br>
       <%= text_field_tag :answer_b %><br>
 
-      <%= label_tag :answer_c %><br>
+      <%= label_tag 'false answer' %><br>
       <%= text_field_tag :answer_c %><br>
 
-      <%= label_tag :answer_d %><br>
+      <%= label_tag 'false answer' %><br>
       <%= text_field_tag :answer_d %><br>
 
-      <%= label_tag :answer_e %><br>
+      <%= label_tag 'false answer' %><br>
       <%= text_field_tag :answer_e %><br>
 
-      <br><%= submit_tag 'Submit' %>
-    <% end %>
+      <br><%= submit_tag 'Save question' %>
+    <% end %><br>
+    <%= link_to "CSV", results_path(format: "csv"), class: "btn-lg"  %>
     </div>
 
     <div class="column">
       <div class="row">
         <%= button_to 'Delete All Questions and Answers', delete_path, method: :get %>
-      </div>
+      </div><br>
         <% Question.all.each do |question| %>
               <div class="row">
                 <div>
