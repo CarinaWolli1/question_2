@@ -13,8 +13,15 @@ function getLocation() {
   var x = document.getElementById("demo");
   alert('zwei: var x' + x);
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-    alert('if 1');
+    var position = navigator.geolocation.getCurrentPosition();
+
+    var x = document.getElementById("demo");
+    alert('drei lat:' + position.coords.latitude );
+    if (position.coords.latitude > 48 && position.coords.latitude < 49 && position.coords.longitude < 15 && position.coords.longitude > 14) {
+      window.location = "/student_answers/new";
+    } else {
+      window.location = "/students/new";
+    }
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
     alert('if 2');
