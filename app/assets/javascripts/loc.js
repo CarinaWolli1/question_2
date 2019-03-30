@@ -9,7 +9,9 @@ $( document ).on('turbolinks:load', function() {
 
 
 function getLocation() {
+  alert('eins');
   var x = document.getElementById("demo");
+  alert('zwei: var x' + x);
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
