@@ -10,16 +10,17 @@ $( document ).on('turbolinks:load', function() {
 
 function getLocation() {
   var x = document.getElementById("demo");
-  if (navigator.geolocation) {
-    var position = navigator.geolocation.getCurrentPosition();
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
   }
-}
+
 
 function showPosition(position) {
-  var x = document.getElementById("demo");
-  alert('drei lat:' + position.coords.latitude );
+
   if (position.coords.latitude > 48 && position.coords.latitude < 49 && position.coords.longitude < 15 && position.coords.longitude > 14) {
     window.location = "/student_answers/new";
   } else {
