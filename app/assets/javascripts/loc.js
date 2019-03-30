@@ -14,6 +14,7 @@ function getLocation() {
   alert('zwei: var x' + x);
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
+    alert('if');
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
