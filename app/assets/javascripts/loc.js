@@ -21,6 +21,7 @@ function getLocation() {
 
 function showPosition(position) {
   var x = document.getElementById("demo");
+  alert('drei lat:' + position.coords.latitude );
   if (position.coords.latitude > 48 && position.coords.latitude < 49 && position.coords.longitude < 15 && position.coords.longitude > 14) {
     window.location = "/student_answers/new";
   } else {
