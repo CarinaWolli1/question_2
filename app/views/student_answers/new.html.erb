@@ -3,12 +3,13 @@
     <div class="center jumbotron">
       <%= form_tag(student_answers_path, method: 'post') do %>
         <% @questions.shuffle.each do |question| %>
-          <h3><%= question.text %></h3>
+          <div class = "question"><%= question.text %></div>
           <% question.answers.shuffle.each do |answer| %>
             <% if answer.text != '' %>
               <input type="radio" name="<%= question.id %>" value="<%= answer.id %>" checked> <%= answer.text %><br>
             <% end %>
           <% end %>
+          <br>
         <% end %><br>
         <%= submit_tag 'Submit' %>
       <% end %>
