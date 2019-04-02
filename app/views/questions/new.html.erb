@@ -46,12 +46,12 @@
                       <%=Answer.where(question_id: question.id).find_each do |answer|%>
 
                         <ul>
-
-                          <li>
-                            <%= answer.text %>
-                          </li>
-
-                          </ul>
+                          <% if answer.text != '' %>
+                            <li>
+                              <%= answer.text %>
+                            </li>
+                          <% end %>
+                        </ul>
 
                   <% end %>
                 <% end %>
