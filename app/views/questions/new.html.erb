@@ -1,68 +1,71 @@
-<% if user_signed_in? %>
 <html>
     <body>
       <div class="center jumbotron">
+      <% if user_signed_in? %>
 
 
-        <div class="row">
-          <div class="column">
 
-
-    <%= form_tag(questions_path, method: 'post') do %>
-      <%= label_tag 'Question' %><br>
-      <%= text_field_tag :text %><br>
-
-      <%= label_tag 'true answer' %><br>
-      <%= text_field_tag :answer_true %><br>
-
-      <%= label_tag 'false answer' %><br>
-      <%= text_field_tag :answer_b %><br>
-
-      <%= label_tag 'false answer' %><br>
-      <%= text_field_tag :answer_c %><br>
-
-      <%= label_tag 'false answer' %><br>
-      <%= text_field_tag :answer_d %><br>
-
-      <%= label_tag 'false answer' %><br>
-      <%= text_field_tag :answer_e %><br>
-
-      <br><%= submit_tag 'Save question' %>
-    <% end %><br>
-    <%= link_to "CSV", results_path(format: "csv"), class: "btn-lg"  %>
-    </div>
-
-    <div class="column">
-      <div class="row">
-        <%= button_to 'Delete All Questions and Answers', delete_path, method: :get %>
-      </div><br>
-        <% Question.all.each do |question| %>
               <div class="row">
-                <div>
-                  <%= question.text %>
-                </div>
-              </div>
-                <%=Answer.where(question_id: question.id).find_each do |answer|%>
+                <div class="column">
 
-                  <ul>
 
-                    <li>
-                      <%= answer.text %>
-                    </li>
+          <%= form_tag(questions_path, method: 'post') do %>
+            <%= label_tag 'Question' %><br>
+            <%= text_field_tag :text %><br>
 
-                    </ul>
+            <%= label_tag 'true answer' %><br>
+            <%= text_field_tag :answer_true %><br>
 
-            <% end %>
-          <% end %>
-      </div>
+            <%= label_tag 'false answer' %><br>
+            <%= text_field_tag :answer_b %><br>
+
+            <%= label_tag 'false answer' %><br>
+            <%= text_field_tag :answer_c %><br>
+
+            <%= label_tag 'false answer' %><br>
+            <%= text_field_tag :answer_d %><br>
+
+            <%= label_tag 'false answer' %><br>
+            <%= text_field_tag :answer_e %><br>
+
+            <br><%= submit_tag 'Save question' %>
+          <% end %><br>
+          <%= link_to "CSV", results_path(format: "csv"), class: "btn-lg"  %>
+          </div>
+
+          <div class="column">
+            <div class="row">
+              <%= button_to 'Delete All Questions and Answers', delete_path, method: :get %>
+            </div><br>
+              <% Question.all.each do |question| %>
+                    <div class="row">
+                      <div>
+                        <%= question.text %>
+                      </div>
+                    </div>
+                      <%=Answer.where(question_id: question.id).find_each do |answer|%>
+
+                        <ul>
+
+                          <li>
+                            <%= answer.text %>
+                          </li>
+
+                          </ul>
+
+                  <% end %>
+                <% end %>
+            </div>
+
+          </div>
+
+      <%else %>
+        <p>Only Admin has the rights for this page.</p>
+
+        <%= link_to "Login", new_user_session_path, :class=>"btn btn-outline-dark"%>
+
+      <% end %>
 
     </div>
-</div>
   </body>
 </html>
-<%else %>
-  <p>Only Admin has the rights for this page.</p>
-
-  <%= link_to "Login", new_user_session_path%>
-
-<% end %>

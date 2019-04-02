@@ -13,6 +13,17 @@
  *= require_self
  */
 
+ .btn-outline-dark, .btn-outline-dark:visited {
+     background-color: #e9ecef !important;
+     font-weight: bold;
+     font-color: black;
+ }
+ .btn-outline-dark:hover {
+   background-color: #6f81c5 !important;
+ }
+
+
+
  nav a {
    color: white;
  }
