@@ -1,10 +1,10 @@
 <html>
   <body>
     <div class="center jumbotron">
-      <h1>Communication Engineering</h1>
+      <h1>Communications Engineering</h1>
       <%= form_with scope: :student, url: students_path, local: true do |form| %>
       <p>
-        <%= form.label :student_number %><br>
+        <%= form.label :student_number, 'Student number (k + 12345678)' %><br>
         <%= form.text_field :student_number %>
       </p>
       <p>
