@@ -56,6 +56,13 @@ dl, ol, ul {
   top: 40%;
   left: 30%;
 }
+
+.submission {
+  position: fixed; /* or absolute */
+
+  left: 30%;
+}
+
 .login {
   width: 200px;
   margin-top: 10vh;
