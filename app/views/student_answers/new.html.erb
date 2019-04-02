@@ -5,7 +5,9 @@
         <% @questions.shuffle.each do |question| %>
           <h3><%= question.text %></h3>
           <% question.answers.shuffle.each do |answer| %>
-            <input type="radio" name="<%= question.id %>" value="<%= answer.id %>" checked> <%= answer.text %><br>
+            <% if answer.text != '' %>
+              <input type="radio" name="<%= question.id %>" value="<%= answer.id %>" checked> <%= answer.text %><br>
+            <% end %>
           <% end %>
         <% end %><br>
         <%= submit_tag 'Submit' %>
