@@ -21,7 +21,7 @@ function getLocation() {
 
 function showPosition(position) {
 
-  if (position.coords.latitude > 48 && position.coords.latitude < 49 && position.coords.longitude < 15 && position.coords.longitude > 14) {
+  if (position.coords.latitude > 48.33 && position.coords.latitude < 48.34 && position.coords.longitude < 14.33 && position.coords.longitude > 14.32) {
     window.location = "/student_answers/new";
   } else {
     window.location = "/students/new";
