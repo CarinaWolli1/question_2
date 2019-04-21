@@ -12,6 +12,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    #max amout of questions is 5
+
     @question = Question.create!(
       text: params[:text]
     )

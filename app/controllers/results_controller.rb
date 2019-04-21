@@ -1,6 +1,6 @@
 class ResultsController < ApplicationController
-  def index
-    Result.destroy_all
+  def index #calculate true answers of every student
+    Result.destroy_all #deletes old results
     points = 0
     StudentAnswer.all.each do |answer|
       points = 0
@@ -15,7 +15,7 @@ class ResultsController < ApplicationController
       a = 0
       Result.all.each do |res|
         if answer.student_number.eql? res.student_number || answer.student_number = nil then
-          a = 5
+          a = 5 #just a random number for the following if
         end
       end
       if a != 5 then
@@ -26,7 +26,7 @@ class ResultsController < ApplicationController
 
     @results = Result.all
 
-    respond_to do |format|
+    respond_to do |format| 
       format.html
       format.csv { send_data @results.to_csv, filename: "answers-#{Date.today}.csv" }
     end
