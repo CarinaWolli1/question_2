@@ -18,7 +18,8 @@ function getLocation() {
 
 function checkPosition(position) {
 
-  if (position.coords.latitude > 48 && position.coords.latitude < 48.5 && position.coords.longitude < 14.3 && position.coords.longitude > 14) {
+  if (position.coords.latitude > 48.3376 && position.coords.latitude < 48.3379
+    && position.coords.longitude > 14.3197 && position.coords.longitude < 14.3200) {
     window.location = "/student_answers/new";
   } else {
     window.location = "/students/new";
