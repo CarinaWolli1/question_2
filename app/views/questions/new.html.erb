@@ -2,9 +2,10 @@
     <body>
       <div class="center jumbotron">
         <% if user_signed_in? %>
+
           <div class="row">
             <div class="column">
-
+              
               <%= form_tag(questions_path, method: 'post') do %>
                 <%= label_tag 'Question' %><br>
                 <%= text_field_tag :text %><br>
@@ -27,6 +28,7 @@
               <% end %><br>
 
               <%= link_to "CSV", results_path(format: "csv"), class: "btn-lg"  %>
+
           </div>
           <div class="column">
             <div class="row">

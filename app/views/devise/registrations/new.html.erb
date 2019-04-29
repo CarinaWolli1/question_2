@@ -33,7 +33,7 @@
         <%= render "devise/shared/links" %>
 
         <%else %>
-          <p>Only admin can sign up users!</p>
+          <p>Only admin can sign up new users with admin rights!</p>
 
           <%= link_to "Login", new_user_session_path, :class=>"btn btn-outline-dark"%>
 
